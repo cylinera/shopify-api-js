@@ -76,7 +76,11 @@ export async function validateHmacString(
   hmac: string,
   format: HashFormat,
 ) {
-  const localHmac = await createSHA256HMAC(config.apiSecretKey, data, format);
+  const localHmac = await createSHA256HMAC(
+    config.webhookSignKey || config.apiSecretKey,
+    data,
+    format,
+  );
 
   return safeCompare(hmac, localHmac);
 }

@@ -27,6 +27,10 @@ export interface ConfigParams<
    */
   apiSecretKey: string;
   /**
+   * The sign key for webhook HMAC validation.
+   */
+  webhookSignKey?: string;
+  /**
    * The scopes your app needs to access the API.
    */
   scopes?: string[] | AuthScopes;
